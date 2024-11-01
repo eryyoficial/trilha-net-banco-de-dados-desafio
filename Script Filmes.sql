@@ -329,6 +329,7 @@ GO
 
 
 	
+	
 -- ============================= CONSULTAS =============================
 	
 --1
@@ -341,16 +342,16 @@ SELECT Nome, Ano FROM Filmes ORDER BY ano;
 SELECT Nome, Ano, Duracao FROM Filmes WHERE Nome = 'De Volta para o Futuro';
 
 --4
-SELECT nome, ano FROM Filmes ORDER BY ano;
-
---5
 SELECT Nome, Ano, Duracao FROM Filmes WHERE Ano = 1997;
 
---6
+--5
 SELECT * FROM Filmes WHERE Ano > 2000;
 
---7
+--6
 SELECT Nome, Ano, Duracao FROM Filmes WHERE Duracao > 100 AND Duracao < 150 ORDER BY Duracao;
+
+--7
+SELECT Ano, COUNT (*) Quantidade FROM Filmes GROUP BY Ano ORDER BY SUM(Duracao) DESC;
 
 --8
 SELECT * FROM Atores WHERE Genero = 'M';
@@ -368,4 +369,4 @@ INNER JOIN Generos ON FilmesGenero.IdGenero = Generos.Id WHERE Genero = 'Mistér
 
 --12
 SELECT Nome, PrimeiroNome, UltimoNome, Papel FROM  ElencoFilme  INNER JOIN Filmes ON 
-Filmes.Id = ElencoFilme.IdFilme INNER JOIN Atores ON Atores.Id = ElencoFilme.IdAtor
+Filmes.Id = ElencoFilme.IdFilme INNER JOIN Atores ON Atores.Id = ElencoFilme.IdAtor;
